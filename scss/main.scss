@@ -1,0 +1,408 @@
+// Base font
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+// Colour variables
+$btn-font-colour: rgba(255,255,255,0.4);
+$button-blue: #5071CC;
+$confirm-green: #5bbb5b;
+$error-red: #ee634a;
+$form-input-color: #e8eeef;
+$header-btn-bg: #5067BC;
+$input-font-color: rgba(178,170,157, 0.6);
+$icon-grey: #B2AA9D;
+$icon-hover: #838383;
+$light-grey: #E0DEDA;
+$modal-color: rgba(0, 0, 0, 0.5);
+$off-white: #f4f7f8;
+$primary-blue: #4356AA;
+$search-input-mobile: #f3f3f3;
+$white: #fff;
+
+// Responsive breakpoint variables
+$tablet-breakpoint: 768px;
+$small-laptop-breakpoint: 992px;
+$desktop-breakpoint: 1200px;
+$title-color: #d5d6d7;
+
+
+/*------------------------ Base styles ----------------------------*/
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $light-grey;
+}
+
+button {
+  border: none;
+  color: $white;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
+
+input[type="text"], select {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  font-size: 1.3em;
+  padding: 15px;
+}
+
+label {
+  display: block;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+select {
+  height: 55px;
+  margin: 10px 0px 30px 0px;
+}
+
+
+/* --------------------    Main Header    ------------------------- */
+
+.header-btn {
+  background: $header-btn-bg;
+  border-radius: 50%;
+  height: 50px;
+  margin: 0 1rem;
+  width: 50px;
+
+  :hover {
+    color: rgba(255,255,255,1);
+  }
+}
+
+.header-btn-group {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.header-icon {
+  color: rgba(255,255,255,0.4);
+  font-size: 2em;
+  transition: all 0.2s linear;
+}
+
+.header-icon.active {
+  color: rgba(255,255,255,1);
+}
+
+.main-header {
+  background: $primary-blue;
+  height: 150px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  .main-title {
+    box-shadow: 0px, 2px, 4px rgba(44,62,80,0.15);
+    color: $title-color;
+    margin: 20px;
+    text-align: center;
+  }
+}
+
+/* ----------------  Search UI  --------------------- */
+
+.search .fa-search {
+  color: $input-font-color;
+  font-size: 30px;
+  height: 50px;
+  left: 25px;
+  position: absolute;
+  top: 13px;
+  width: 50px;
+}
+
+.search .fa-times {
+  color: $input-font-color;
+  cursor: pointer;
+  font-size: 25px;
+  height: 50px;
+  position: absolute;
+  right: 0px;
+  top: 14px;
+  width: 50px;
+}
+
+#searchDiv {
+  bottom: 12px;
+  padding: 0px 10px;
+  position: fixed;
+  width: 100%;
+}
+
+#search-input {
+  background: $search-input-mobile;
+  border-radius: 50px;
+  color: $input-font-color;
+  text-indent: 40px;
+  width: 100%;
+}
+
+#search-input::-webkit-input-placeholder {
+  color: $input-font-color;
+}
+
+
+
+
+/*------------------------ Form/modal styles ----------------------------*/
+
+.alert {
+  animation-name: modalopen;
+  animation-duration: 0.3s;
+  background: $off-white;
+  border-radius: 8px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  color: darken($icon-grey, 20%);
+  display: none;
+  font-size: 1.5rem;
+  margin: 100px auto;
+  position: relative;
+  padding: 40px 30px;
+  text-align: center;
+  width: 60%;
+  z-index: 21;
+
+  .close-modal {
+    color: $light-grey;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+  }
+}
+
+
+form {
+  animation-name: modalopen;
+  animation-duration: 0.3s;
+  background: $off-white;
+  border-radius: 8px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  display: none;
+  margin: 100px auto;
+  padding: 40px 30px;
+  position: relative;
+  width: 90%;
+  z-index: 21;
+
+  .fa-times {
+    color: $light-grey;
+    cursor: pointer;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+  }
+
+  h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
+form input[type="text"], select {
+  background-color: $form-input-color;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+}
+
+#registrar button {
+  background: $button-blue;
+  border-radius: 8px;
+  height: 60px;
+  width: 100%;
+}
+
+#registrar button .submit {
+  color: rgba(255,255,255,0.7);
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.no-btn {
+  background: $error-red;
+}
+
+.yes-btn {
+  background: $confirm-green;
+}
+
+.yes-btn, .no-btn {
+  border-radius: 5px;
+  font-size: 1.5rem;
+  margin: 20px 5px;
+  padding: 10px 30px;
+}
+
+/*------------------------ List styles ----------------------------*/
+
+.confirmed {
+  color: $confirm-green;
+}
+
+.icon {
+  cursor: pointer;
+  font-size: 1.3em;
+  margin-left: 5px;
+  transition: all 0.2s linear;
+
+  :hover {
+    color: $icon-hover;
+  }
+}
+
+.invitee {
+  align-items: flex-start;
+  background: $white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+  color: $icon-grey;
+  display: flex;
+  font-size: 1em;
+  font-weight: 100;
+  height: 50px;
+  justify-content: space-between;
+  padding: 15px 10px 0px 20px;
+}
+
+li {
+  background: transparent;
+  border-radius: 5px;
+  list-style: none;
+  margin-top: 12px;
+  position: relative;
+
+  span {
+    align-self: flex-start;
+    margin-right: auto;
+    text-transform: capitalize;
+  }
+}
+
+ul.inviteList {
+  display: grid;
+  margin-top: 160px;
+  padding: 0px 15px;
+}
+
+
+/* -------------- Footer styles ----------------*/
+
+footer {
+  background: $light-grey;
+  border-top: 2px solid #ccc;
+  bottom: 0;
+  height: 77px;
+  position: fixed;
+  width: 100%;
+}
+
+
+/*---------------- Media Queries -----------------------*/
+
+@media (min-width: $tablet-breakpoint) {
+  .container {
+    width: 100%;
+  }
+
+  .header-btn-group {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer {
+    display: none;
+  }
+
+  form {
+    padding: 50px 40px;
+    width: 60%;
+  }
+
+  #searchDiv {
+    position: static;
+    width: 80%;
+
+    .fa-search {
+      color: $btn-font-colour;
+    }
+
+    .fa-times {
+      color: $btn-font-colour;
+    }
+
+    .search-inner {
+      position: relative;
+    }
+
+  }
+
+  #search-input {
+    background: $header-btn-bg;
+    color: $btn-font-colour;
+    text-indent: 60px;
+  }
+
+  #search-input::-webkit-input-placeholder {
+    color: $btn-font-colour;
+  }
+
+  .search-mobile-icon {
+    display: none;
+  }
+
+  ul.inviteList {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 15px;
+    margin-bottom: 200px;
+  }
+}
+
+@media (min-width: $desktop-breakpoint) {
+  form {
+    width: 50%;
+  }
+
+  ul.inviteList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@keyframes modalopen {
+  from{opacity: 0}
+  to {opacity: 1}
+}

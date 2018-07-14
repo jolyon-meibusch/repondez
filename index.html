@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+  <title>Embassy RSVP Application</title>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <div class="main-title">
+        <h1 class="main-heading">Répondez</h1>
+      </div> <!-- main-title-->
+      <div class="header-btn-group">
+        <div class="search" id="searchDiv">
+          <div class="search-inner">
+            <i class="fas fa-search"></i>
+            <input class="search-input" id="search-input" type="text" placeholder="Search for a guest">
+            <i class="fas fa-times close-search"></i>
+          </div>
+        </div> <!-- search -->
+        <button class="header-btn search-mobile-icon">
+          <i class="header-icon fas fa-search"></i>
+        </button>
+        <button class="header-btn filter-icon">
+          <i class="header-icon fas fa-filter"></i>
+        </button>
+        <button class="header-btn trash-icon">
+          <i class="header-icon fas fa-trash-alt"></i>
+        </button>
+        <button class="invite-guest header-btn">
+          <i class="header-icon fas fa-user-plus"></i>
+        </button>
+      </div> <!-- header-btn-group -->
+    </div> <!-- container -->
+  </header>
+  <ul class="inviteList">
+
+<!-- New Guests Apear Here -->
+
+  </ul>
+
+  <div class="modal">
+    <form id="registrar" class="add-guest">
+      <i class="fas fa-2x fa-times close-modal"></i>
+      <h2>Invite a Guest</h2>
+      <label for="guestName">Guest Name</label>
+      <input id="guestName" type="text" class="name-input">
+      <label for="guestTitle">Guest Title</label>
+      <input id="guestTitle" type="text" class="name-input">
+      <select id="job" name="profession">
+        <optgroup label="Category">
+          <option value="diplomat">Diplomat</option>
+          <option value="politician">Politician</option>
+          <option value="other">Other</option>
+        </optgroup>
+      </select>
+      <button type="submit" name="submit" value="submit">
+        <i class="header-icon fas fa-user-plus"></i>
+        <span class="submit"> Add Guest</span>
+      </button>
+    </form>
+    <!--  alert modal -->
+    <div class="alert">
+
+    </div>
+  </div>
+  <footer></footer>
+  <script src="app.js"></script>
+</body>
+</html>
