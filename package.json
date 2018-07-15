@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "sass": "node-sass -w scss/ -o css/"
+    "sass": "node-sass -w scss/ -o css/",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
