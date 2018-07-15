@@ -17,11 +17,11 @@ const filterIcon = document.querySelector('.fa-filter');
 
 
 class Guest {
-  constructor(name, title, category, guestID) {
+  constructor(name, title, category, confirmed) {
     this.name = name;
     this.title = title;
     this.category = category;
-    this.guestID = guestID;
+    this.confirmed = confirmed;
   }
 }
 
@@ -50,7 +50,7 @@ class UI {
           <span>${guest.name}</span>
           <i class="icon fas fa-info-circle"></i>
           <i class="icon fas fa-trash-alt"></i>
-          <i class="icon fas fa-check-circle"></i>
+          <i class="icon fas fa-check-circle ${guest.confirmed}"></i>
         </div>
     `;
     li.classList.add(`${guest.category}`);
@@ -106,17 +106,6 @@ class UI {
         attendee.style.display = 'block';
     });
   }
-
-  saveGuest(target){
-    const front = target.parentElement;
-    const input = target.parentElement.firstElementChild;
-    const span = document.createElement('span');
-    const guestID = target.parentElement.firstElementChild.nextElementSibling;
-    span.textContent = input.value;
-    front.insertBefore(span, input);
-    input.remove();
-    target.classList = 'icon-front fas fa-edit';
-  }
 }
 
 // add to local storage
@@ -144,20 +133,6 @@ class Store {
     const guests = Store.getGuests();
     guests.push(guest);
     localStorage.setItem('guests', JSON.stringify(guests));
-  }
-
-  static saveFront(id, editedName){
-    const guests = Store.getGuests();
-    guests.forEach(function(guest, index){
-      if(guest.guestID === id){
-        guests.splice(index, 1, `{name: "${editedName}", title: "prime minister of australia", category: "diplomat", guestID: 2}`);
-      }
-    });
-    localStorage.setItem('guests', JSON.stringify(guests));
-  }
-
-  static saveBack(){
-
   }
 
   static removeGuest(name){
@@ -262,8 +237,9 @@ form.addEventListener('submit', (e) => {
   const name = document.getElementById('guestName').value,
         title = document.getElementById('guestTitle').value,
         category = document.getElementById('job').value;
+        confirmed = '';
   // instantiate book
-  const guest = new Guest(name, title, category);
+  const guest = new Guest(name, title, category, confirmed);
   // instantiate UI
   const ui = new UI();
 
