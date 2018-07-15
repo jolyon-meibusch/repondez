@@ -1,9 +1,6 @@
 {
   "name": "embassy-rsvp-modal",
   "version": "1.0.0",
-  "engines": {
-    "npm": "5.6.x"
-  },
   "description": "",
   "main": "app.js",
   "scripts": {
