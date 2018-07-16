@@ -36,11 +36,6 @@ class UI {
     alertDiv.style.display = 'block';
   }
 
-  openFilterModal(){
-    modal.style.display = 'block';
-    alertDiv.style.display = 'block';
-  }
-
   addGuestToList(guest){
     const list = document.querySelector('.inviteList');
     const li = document.createElement('li');
@@ -51,6 +46,11 @@ class UI {
           <i class="icon fas fa-info-circle"></i>
           <i class="icon fas fa-trash-alt"></i>
           <i class="icon fas fa-check-circle ${guest.confirmed}"></i>
+        </div>
+        <div class="invitee-info">
+          <h4>Name: ${guest.name}</h4>
+          <h4>Title: ${guest.title}</h4>
+          <h4>Category: ${guest.category}</h4>
         </div>
     `;
     li.classList.add(`${guest.category}`);
@@ -83,7 +83,7 @@ class UI {
       }
     });
     if(confirmedCount === 0){
-    ui.openFilterModal();
+    ui.openAlertModal();
     alertDiv.innerHTML = `
     <i class="fas fa-2x fa-times close-modal"></i>
     <span>There are currently no confirmed guests to filter.</span>
@@ -278,8 +278,12 @@ closeSearch.addEventListener('click', (e) => {
 ul.addEventListener('click', (e) => {
   const ui = new UI();
   if(e.target.classList.contains('fa-info-circle') || e.target.classList.contains('fa-undo-alt')){
-    const card = e.target.parentElement.parentElement;
-    card.classList.toggle('active');
+    ui.openAlertModal();
+    const attendeeInfo = e.target.parentElement.nextElementSibling.innerHTML;
+    alertDiv.innerHTML = `
+    <i class="fas fa-2x fa-times close-modal"></i>
+    ${attendeeInfo}
+    `;
   }  else if(e.target.classList.contains('fa-trash-alt')){
     e.target.parentElement.parentElement.remove();
     Store.removeGuest(e.target.parentElement.firstElementChild.textContent);

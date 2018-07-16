@@ -298,6 +298,14 @@ form input[type="text"], select {
   padding: 15px 10px 0px 20px;
 }
 
+.invitee-info {
+  display: none;
+
+  h4 {
+    text-transform: capitalize;
+  }
+}
+
 li {
   background: transparent;
   border-radius: 5px;

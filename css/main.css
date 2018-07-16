@@ -219,6 +219,11 @@ form input[type="text"], select {
   justify-content: space-between;
   padding: 15px 10px 0px 20px; }
 
+.invitee-info {
+  display: none; }
+  .invitee-info h4 {
+    text-transform: capitalize; }
+
 li {
   background: transparent;
   border-radius: 5px;
