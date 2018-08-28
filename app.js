@@ -48,9 +48,15 @@ class UI {
           <i class="icon fas fa-check-circle ${guest.confirmed}"></i>
         </div>
         <div class="invitee-info">
-          <h4>Name: ${guest.name}</h4>
-          <h4>Title: ${guest.title}</h4>
-          <h4>Category: ${guest.category}</h4>
+          <div class="invite-div">
+            <h3>Guest Name: ${guest.name}</h3>
+          </div>
+          <div class="invite-div">
+            <h3>Guest Title: ${guest.title}</h3>
+          </div>
+          <div class="invite-div">
+            <h3>Category: ${guest.category}</h3>
+          </div>
         </div>
     `;
     li.classList.add(`${guest.category}`);

@@ -178,13 +178,23 @@ select {
   font-size: 1.5rem;
   margin: 100px auto;
   position: relative;
-  padding: 40px 30px;
+  padding: 30px;
   text-align: center;
-  width: 60%;
+  width: 40%;
   z-index: 21;
+
+  h3 {
+    text-transform: capitalize;
+    font-weight: 300;
+  }
+
+  .invite-div {
+    margin: 30px;
+  }
 
   .close-modal {
     color: $light-grey;
+    cursor: pointer;
     position: absolute;
     top: 20px;
     right: 20px;
@@ -302,7 +312,7 @@ form input[type="text"], select {
   display: none;
 
   h4 {
-    text-transform: capitalize;
+    text-transform: uppercase;
   }
 }
 
