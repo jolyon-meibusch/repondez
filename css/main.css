@@ -6,6 +6,13 @@
   margin: 0;
   padding: 0; }
 
+.starting-message {
+  color: #B2AA9D;
+  text-align: center;
+  opacity: 0.7; }
+  .starting-message h2 {
+    font-weight: 300; }
+
 body {
   background: #E0DEDA; }
 

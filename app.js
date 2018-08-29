@@ -14,7 +14,8 @@ const alertDiv = document.querySelector('.alert');
 const searchDiv = document.getElementById('searchDiv');
 const filterUI = document.getElementById('filterUI');
 const filterIcon = document.querySelector('.fa-filter');
-
+const invitedGuests = ul.children;
+const startingMessage = document.querySelector('.starting-message');
 
 class Guest {
   constructor(name, title, category, confirmed) {
@@ -170,13 +171,12 @@ const clearAll = () => {
   });
   Store.clearGuests();
   closeModal();
+  startingMessage.style.display = 'block';
 }
 
 const clearSingularAttendee = (target) => {
-  console.log(target);
   closeModal();
 };
-
 
 
 // event listeners
@@ -256,6 +256,7 @@ form.addEventListener('submit', (e) => {
     Store.addGuest(guest);
     ui.clearFields();
     closeModal();
+    startingMessage.style.display = 'none';
   }
 });
 
@@ -264,14 +265,22 @@ form.addEventListener('submit', (e) => {
 trashIcon.addEventListener('click', (e) => {
   const ui = new UI();
   ui.openAlertModal();
-  alertDiv.innerHTML = `
-  <i class="fas fa-2x fa-times close-modal"></i>
-  <span>Are you sure you want to delete all attendees?</span>
-  <div>
-    <button class="no-btn" onClick="closeModal();">No</button>
-    <button class="yes-btn" onClick="clearAll();">Yes</button>
-  </div>
-  `;
+  const invitedGuests = document.querySelectorAll('.attendee');
+  if(invitedGuests.length > 0){
+    alertDiv.innerHTML = `
+    <i class="fas fa-2x fa-times close-modal"></i>
+    <span>Are you sure you want to delete all attendees?</span>
+    <div>
+      <button class="no-btn" onClick="closeModal();">No</button>
+      <button class="yes-btn" onClick="clearAll();">Yes</button>
+    </div>
+    `;
+  } else {
+    alertDiv.innerHTML = `
+    <i class="fas fa-2x fa-times close-modal"></i>
+    <span>There are currently no guests to delete.</span>
+    `;
+  }
 });
 
 // clear search field on close button event
@@ -293,7 +302,9 @@ ul.addEventListener('click', (e) => {
   }  else if(e.target.classList.contains('fa-trash-alt')){
     e.target.parentElement.parentElement.remove();
     Store.removeGuest(e.target.parentElement.firstElementChild.textContent);
-
+    if(invitedGuests.length < 1){
+      startingMessage.style.display = 'block';
+    }
   } else if (e.target.classList.contains('fa-check-circle')){
     if(e.target.classList.contains('confirmed')){
       e.target.classList.remove('confirmed')

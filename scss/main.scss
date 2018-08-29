@@ -34,6 +34,16 @@ $title-color: #d5d6d7;
   padding: 0;
 }
 
+.starting-message {
+  color: $icon-grey;
+  text-align: center;
+  opacity: 0.7;
+
+  h2 {
+  font-weight: 300;
+  }
+}
+
 body {
   background: $light-grey;
 }
