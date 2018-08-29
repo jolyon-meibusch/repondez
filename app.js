@@ -120,8 +120,10 @@ class Store {
   static getGuests(){
     let guests;
     if(localStorage.getItem('guests')===null){
+      startingMessage.style.display = 'block';
       guests = [];
     } else {
+      startingMessage.style.display = 'none';
       guests = JSON.parse(localStorage.getItem('guests'));
     }
     return guests;

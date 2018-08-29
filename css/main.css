@@ -116,7 +116,7 @@ select {
 #search-input::-webkit-input-placeholder {
   color: rgba(178, 170, 157, 0.6); }
 
-/*------------------------ Form/modal styles ----------------------------*/
+/*------------------------ Form/modal styles mobile ----------------------------*/
 .alert {
   animation-name: modalopen;
   animation-duration: 0.3s;
@@ -128,9 +128,9 @@ select {
   font-size: 1.5rem;
   margin: 100px auto;
   position: relative;
-  padding: 30px;
+  padding: 70px;
   text-align: center;
-  width: 40%;
+  width: 90%;
   z-index: 21; }
   .alert h3 {
     text-transform: capitalize;
@@ -300,7 +300,9 @@ footer {
   form {
     width: 50%; }
   ul.inviteList {
-    grid-template-columns: repeat(3, 1fr); } }
+    grid-template-columns: repeat(3, 1fr); }
+  .alert {
+    width: 40%; } }
 
 @keyframes modalopen {
   from {

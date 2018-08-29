@@ -175,7 +175,7 @@ select {
 
 
 
-/*------------------------ Form/modal styles ----------------------------*/
+/*------------------------ Form/modal styles mobile ----------------------------*/
 
 .alert {
   animation-name: modalopen;
@@ -188,9 +188,9 @@ select {
   font-size: 1.5rem;
   margin: 100px auto;
   position: relative;
-  padding: 30px;
+  padding: 70px;
   text-align: center;
-  width: 40%;
+  width: 90%;
   z-index: 21;
 
   h3 {
@@ -426,6 +426,10 @@ footer {
 
   ul.inviteList {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .alert {
+    width: 40%;
   }
 
 }
